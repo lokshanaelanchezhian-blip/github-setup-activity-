@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SOCIAL HUB – Social Networking Explained</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--text:#1b1f2a;--muted:#5d6678;--accent:#5b4bff;--accent2:#ff5fa2;--line:#e3e6ef;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1220;--card:#181c2e;--text:#eef0f8;--muted:#a3abc2;--line:#2a2f47;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1220;--card:#181c2e;--text:#eef0f8;--muted:#a3abc2;--line:#2a2f47;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55}
+.hide{display:none!important}
+.brand{font-weight:800;letter-spacing:.06em;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+/* login */
+#login{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.box{width:100%;max-width:380px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px 24px;box-shadow:0 10px 30px rgba(91,75,255,.12)}
+.box h1{margin:0 0 4px;font-size:28px;text-align:center}
+.box p.sub{margin:0 0 20px;text-align:center;color:var(--muted);font-size:14px}
+label{display:block;font-size:13px;font-weight:600;margin:12px 0 5px}
+input{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--text);font-size:16px}
+input:focus{outline:2px solid var(--accent);border-color:transparent}
+button{cursor:pointer;font:inherit}
+.btn{width:100%;margin-top:18px;padding:13px;border:0;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;font-weight:700}
+.link{background:none;border:0;color:var(--accent);padding:0;font-weight:600}
+.err{color:#e5484d;font-size:13px;min-height:18px;margin-top:10px;text-align:center}
+.switch{text-align:center;font-size:14px;color:var(--muted);margin-top:14px}
+/* site */
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--card);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;padding:12px 18px;z-index:5}
+header .who{font-size:14px;color:var(--muted);display:flex;gap:12px;align-items:center}
+.out{border:1px solid var(--line);background:none;color:var(--text);padding:6px 12px;border-radius:8px;font-size:13px}
+main{max-width:860px;margin:0 auto;padding:24px 18px 40px}
+.hero{text-align:center;padding:28px 0 18px}
+.hero h2{font-size:clamp(26px,6vw,40px);margin:0 0 8px}
+.hero p{color:var(--muted);margin:0 auto;max-width:520px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.card h3{margin:0 0 6px;font-size:17px}
+.card p{margin:0;color:var(--muted);font-size:14px}
+h4{margin:34px 0 0;font-size:20px}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
+</style>
+</head>
+<body>
+
+<!-- LOGIN (first page) -->
+<section id="login">
+  <div class="box">
+    <h1 class="brand">SOCIAL HUB</h1>
+    <p class="sub" id="modeSub">Welcome back! Login pannunga</p>
+    <div id="nameRow" class="hide"><label for="name">Name</label><input id="name" autocomplete="name" placeholder="Your name"></div>
+    <label for="email">Email</label>
+    <input id="email" type="email" autocomplete="email" placeholder="you@example.com">
+    <label for="pass">Password</label>
+    <input id="pass" type="password" autocomplete="current-password" placeholder="••••••••">
+    <div class="err" id="err"></div>
+    <button class="btn" id="go">Login</button>
+    <div class="switch"><span id="swTxt">New user?</span> <button class="link" id="sw">Sign up</button></div>
+  </div>
+</section>
+
+<!-- MAIN SITE (after login) -->
+<section id="site" class="hide">
+  <header>
+    <span class="brand">SOCIAL HUB</span>
+    <span class="who"><span id="hello"></span><button class="out" id="logout">Logout</button></span>
+  </header>
+  <main>
+    <div class="hero">
+      <h2>Social networking, explained clearly.</h2>
+      <p>How online communities connect people, share ideas and shape the way we live, learn and work.</p>
+    </div>
+    <h4>The basics</h4>
+    <div class="grid">
+      <div class="card"><h3>What is it?</h3><p>Online platforms where people build profiles, connect with others and share posts, photos and videos.</p></div>
+      <div class="card"><h3>How it works</h3><p>You follow or friend people, and algorithms choose which posts appear in your feed.</p></div>
+      <div class="card"><h3>Why it matters</h3><p>It helps with staying in touch, finding jobs, learning skills and growing small businesses.</p></div>
+    </div>
+    <h4>Types of platforms</h4>
+    <div class="grid">
+      <div class="card"><h3>Social</h3><p>Friends and family sharing, like Facebook and Instagram.</p></div>
+      <div class="card"><h3>Professional</h3><p>Careers and networking, like LinkedIn.</p></div>
+      <div class="card"><h3>Video</h3><p>Short and long videos, like YouTube and TikTok.</p></div>
+      <div class="card"><h3>Messaging</h3><p>Private chats and groups, like WhatsApp and Telegram.</p></div>
+    </div>
+    <h4>Stay safe online</h4>
+    <div class="grid">
+      <div class="card"><h3>Strong passwords</h3><p>Use a unique password for each account and turn on two-step login.</p></div>
+      <div class="card"><h3>Think before sharing</h3><p>Avoid posting your address, phone number or other private details.</p></div>
+      <div class="card"><h3>Spot fake news</h3><p>Check the source before you believe or forward something.</p></div>
+    </div>
+  </main>
+  <footer>© 2026 SOCIAL HUB. Educational content; figures and headlines are illustrative samples.</footer>
+</section>
+
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var signup=false, KEY_U='sh_users', KEY_S='sh_session';
+  function load(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}}
+  function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+  function show(name){
+    $('login').classList.add('hide');$('site').classList.remove('hide');
+    $('hello').textContent='Hi, '+name;window.scrollTo(0,0);
+  }
+  function mode(s){
+    signup=s;
+    $('nameRow').classList.toggle('hide',!s);
+    $('go').textContent=s?'Create account':'Login';
+    $('modeSub').textContent=s?'Account create pannunga':'Welcome back! Login pannunga';
+    $('swTxt').textContent=s?'Already have an account?':'New user?';
+    $('sw').textContent=s?'Login':'Sign up';
+    $('err').textContent='';
+  }
+  $('sw').onclick=function(){mode(!signup)};
+  $('go').onclick=function(){
+    var email=$('email').value.trim().toLowerCase(),pass=$('pass').value,name=$('name').value.trim();
+    var users=load(KEY_U)||{};
+    if(!/^\S+@\S+\.\S+$/.test(email)){$('err').textContent='Valid email podunga';return}
+    if(pass.length<6){$('err').textContent='Password minimum 6 characters';return}
+    if(signup){
+      if(!name){$('err').textContent='Name podunga';return}
+      if(users[email]){$('err').textContent='Indha email already irukku';return}
+      users[email]={name:name,pass:pass};save(KEY_U,users);
+      save(KEY_S,{email:email});show(name);
+    }else{
+      var u=users[email];
+      if(!u||u.pass!==pass){$('err').textContent='Email illa password thappu. New user na Sign up pannunga.';return}
+      save(KEY_S,{email:email});show(u.name);
+    }
+  };
+  ['email','pass','name'].forEach(function(i){$(i).addEventListener('keydown',function(e){if(e.key==='Enter')$('go').click()})});
+  $('logout').onclick=function(){
+    try{localStorage.removeItem(KEY_S)}catch(e){}
+    $('site').classList.add('hide');$('login').classList.remove('hide');
+    $('pass').value='';mode(false);
+  };
+  var s=load(KEY_S),us=load(KEY_U);
+  if(s&&us&&us[s.email])show(us[s.email].name);
+})();
+</script>
+</body>
+</html>
